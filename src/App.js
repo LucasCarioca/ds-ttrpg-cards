@@ -104,10 +104,16 @@ class CardEditor extends Component {
     reader.readAsDataURL(file)
   }
 
-  get cardTypeOptions() {
+  get cardTypeOptions() { 
     return [
-      'default',
-      'long',
+      {
+        type: 'default',
+        label: 'With Image',
+      },
+      {
+        type:'long',
+        label: 'Item Card',
+      }
     ];
   }
 
@@ -124,14 +130,19 @@ class CardEditor extends Component {
     return (
       <div className="container">
         <div className="fields">
+          <label className="fieldLabel">Type</label>
           <select value={cardType} onChange={this.onChangeCardType}>
             {this.cardTypeOptions.map(option => (
-              <option value={option}>{option}</option>
+              <option value={option.type}>{option.label}</option>
             ))}
           </select>
+          <label className="fieldLabel">Name</label>
           <input value={title} onChange={this.onChangeTitle} />
+          <label className="fieldLabel">Rarity/flavor text</label>
           <input value={flavor} onChange={this.onChangeFlavor} />
+          <label className="fieldLabel">Value in gold</label>
           <input value={value} onChange={this.onChangeValue} />
+          <label className="fieldLabel">Description</label>
           <textarea value={description} onChange={this.onChangeDescription} />
           <div>
             <input type="checkbox" checked={needsAttunement} onChange={this.onChangeNeedsAttunement} />

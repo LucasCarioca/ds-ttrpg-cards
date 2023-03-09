@@ -82,7 +82,7 @@ html {
   position: relative;
   display: block;
   padding: 10px 0;
-  margin: 10px;
+  margin-bottom: 10px;
   width: 100%;
   font-size: 15px;
 }
@@ -125,4 +125,10 @@ html {
   font-size: 30px;
   text-align: center;
   margin-top: 15px;
+}
+
+.fieldLabel {
+  font-size:12px;
+  margin-bottom: 5px;
+  padding: 0;
 }

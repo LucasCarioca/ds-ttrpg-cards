@@ -56,7 +56,7 @@ export default class Card extends Component {
         <img src={cards[cardType]} className="card__img" alt="card" />
         <div className={`card__attunement ${needsAttunement}`} />
         {this.renderField('title')}
-        {this.renderField('type')}
+        {this.renderField('flavor')}
         {this.renderField('value', {
           forceSingleModeWidth: true,
           max: 241,

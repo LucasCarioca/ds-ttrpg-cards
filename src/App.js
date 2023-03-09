@@ -182,6 +182,7 @@ class App extends Component {
 
     return (
       <Fragment>
+        <div className="header">Generate TTRPG Cards</div>
         <button className="print-mode button button-top" onClick={this.onClick}>Print Mode</button>
         {printMode && <button className="download-all button button-top" onClick={this.onSave}>Create Image</button>}
         {href && <a className="download-cards" download="cards.png" href={href}>Download Image</a>}

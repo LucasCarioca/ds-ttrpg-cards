@@ -56,12 +56,12 @@
 }
 
 .card__title p,
-.card__type p,
+.card__flavor p,
 .card__description p {
   margin: 0;
 }
 
-.card__type {
+.card__flavor {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -173,7 +173,7 @@
   height: 6.5%;
 }
 
-.card--long .card__type {
+.card--long .card__flavor {
   top: 17.75%;
   left: 9.0%;
   width: 57.5%;

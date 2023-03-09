@@ -16,18 +16,22 @@ const onChange = property => function({ target }) {
 
 const localStorage = window.localStorage;
 
-const defaultTitle = 'Circlet of Blasting'
+const defaultTitle = 'Magic Item'
 
-const defaultDesc = `While wearing this circlet, you can use an action to cast the Scorching Ray spell with it. When you make the spell's attacks, you do so with an **Attack bonus of +5**. The circlet can't be used this way again until the next dawn.`
+const defaultDesc = 'This is an item description'
+
+const defaultFlavor = 'Rarity and/or flavor text'
+
+const defaultValue = 'Value'
 
 const defaultState = {
-  cartType: 'default',
+  cardType: 'long',
   description: defaultDesc,
   needsAttunement: false,
-  title: 'Gauntlet of Thunderblasting',
-  type: 'Uncommon',
+  title: defaultTitle,
+  flavor: defaultFlavor,
   imagePreviewUrl: undefined,
-  value: '100',
+  value: defaultValue,
 };
 
 const saveData = debounce((key, data) => {
@@ -48,7 +52,7 @@ class CardEditor extends Component {
   state = {
     cardType: 'default',
     title: '',
-    type: '',
+    flavor: '',
     description: '',
     value: '',
     needsAttunement: false,
@@ -57,7 +61,7 @@ class CardEditor extends Component {
   constructor() {
     super();
     this.onChangeTitle = onChange('title').bind(this);
-    this.onChangeType = onChange('type').bind(this);
+    this.onChangeFlavor = onChange('flavor').bind(this);
     this.onChangeDescription = onChange('description').bind(this);
     this.onChangeValue = onChange('value').bind(this);
     this.onChangeNeedsAttunement = onChange('needsAttunement').bind(this);
@@ -114,7 +118,7 @@ class CardEditor extends Component {
       href,
       needsAttunement,
       title,
-      type,
+      flavor,
       value,
     } = this.state;
     return (
@@ -126,7 +130,7 @@ class CardEditor extends Component {
             ))}
           </select>
           <input value={title} onChange={this.onChangeTitle} />
-          <input value={type} onChange={this.onChangeType} />
+          <input value={flavor} onChange={this.onChangeFlavor} />
           <input value={value} onChange={this.onChangeValue} />
           <textarea value={description} onChange={this.onChangeDescription} />
           <div>
@@ -140,10 +144,10 @@ class CardEditor extends Component {
             onChange={this.onImageChange}
           />
           <div className="buttons">
-            <button onClick={this.onReset}>
+            <button className="button" onClick={this.onReset}>
               Reset
             </button>
-            <button onClick={this.onSave}>
+            <button className="button" onClick={this.onSave}>
               Save
             </button>
           </div>
@@ -178,8 +182,8 @@ class App extends Component {
 
     return (
       <Fragment>
-        <button className="print-mode" onClick={this.onClick}>Print Mode</button>
-        {printMode && <button className="download-all" onClick={this.onSave}>Create Image</button>}
+        <button className="print-mode button button-top" onClick={this.onClick}>Print Mode</button>
+        {printMode && <button className="download-all button button-top" onClick={this.onSave}>Create Image</button>}
         {href && <a className="download-cards" download="cards.png" href={href}>Download Image</a>}
         <div className={classes} ref={ref => this.ref = ref}>
           {R.range(0, 9).map(i => (

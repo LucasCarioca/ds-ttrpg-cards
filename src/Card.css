@@ -117,7 +117,7 @@
   height: 6.5%;
 }
 
-.card--default .card__type {
+.card--default .card__flavor {
   top: 18.45%;
   left: 46.5%;
   width: 45.5%;
@@ -210,5 +210,62 @@
 }
 
 .card--long .card__icon:before {
+  padding-top: 79%;
+}
+
+/*GENERIC*/
+
+.card--generic .card__title {
+  top: 6.25%;
+  left: 50%;
+  width: 82%;
+  transform: translate(-50%, 0);
+  height: 6.5%;
+}
+
+.card--generic .card__flavor {
+  top: 13.75%;
+  left: 50.0%;
+  width: 88%;
+/*  max-width: 90%;*/
+  transform: translate(-50%, 0);
+  height: 6.5%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.card--generic .card__description {
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 87%;
+  height: 68%;
+  font-size: 16px;
+}
+
+.card--generic .card__value {
+  display: none;
+}
+
+.card--generic .card__attunement {
+  display: none;
+}
+
+.card--generic .card__attunement.false {
+  display:none;
+}
+
+.card--generic .card__attunement.true {
+  display: none;
+}
+
+.card--generic .card__icon {
+  display: none;
+}
+
+.card--generic .card__icon:before {
   padding-top: 79%;
 }

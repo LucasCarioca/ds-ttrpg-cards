@@ -113,6 +113,10 @@ class CardEditor extends Component {
       {
         type:'long',
         label: 'Item Card',
+      },
+      {
+        type: 'generic',
+        label: 'Generic Card',
       }
     ];
   }

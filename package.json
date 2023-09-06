@@ -13,6 +13,7 @@
     "react-scripts": "1.1.4",
     "react-textfit": "^1.1.0"
   },
+  "homepage": "https://lucascarioca.github.io/ds-ttrpg-cards",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

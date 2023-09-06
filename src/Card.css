@@ -1,6 +1,8 @@
 .card {
   width: 2.5in;
   position: relative;
+  color: rgba(255, 255, 255, 0.73);
+  z-index: -100;
 }
 
 .card:before {
@@ -95,6 +97,7 @@
   flex-wrap: nowrap;
   text-align: center;
   vertical-align: middle;
+  color: white;
 }
 
 .card__attunement {
@@ -134,8 +137,8 @@
 }
 
 .card--default .card__value {
-  top: 27.05%;
-  left: 49%;
+  bottom: 1%;
+  right: 10%;
   width: 12.25%;
   height: 7.5%;
 }

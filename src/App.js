@@ -25,7 +25,7 @@ const defaultFlavor = 'Rarity and/or flavor text'
 const defaultValue = 'Value'
 
 const defaultState = {
-  cardType: 'long',
+  cardType: 'default',
   description: defaultDesc,
   needsAttunement: false,
   title: defaultTitle,
@@ -64,7 +64,6 @@ class CardEditor extends Component {
     this.onChangeFlavor = onChange('flavor').bind(this);
     this.onChangeDescription = onChange('description').bind(this);
     this.onChangeValue = onChange('value').bind(this);
-    this.onChangeNeedsAttunement = onChange('needsAttunement').bind(this);
     this.onChangeCardType = onChange('cardType').bind(this);
   }
 
@@ -108,16 +107,32 @@ class CardEditor extends Component {
     return [
       {
         type: 'default',
-        label: 'With Image',
+        label: 'white',
       },
       {
-        type:'long',
-        label: 'Item Card',
+        type: 'black',
+        label: 'black',
       },
       {
-        type: 'generic',
-        label: 'Generic Card',
-      }
+        type: 'red',
+        label: 'red',
+      },
+      {
+        type: 'gold',
+        label: 'gold',
+      },
+      {
+        type: 'green',
+        label: 'green',
+      },
+      {
+        type: 'purple',
+        label: 'purple',
+      },
+      {
+        type: 'cyan',
+        label: 'cyan',
+      },
     ];
   }
 
@@ -126,7 +141,6 @@ class CardEditor extends Component {
       cardType,
       description,
       href,
-      needsAttunement,
       title,
       flavor,
       value,
@@ -136,8 +150,8 @@ class CardEditor extends Component {
         <div className="fields">
           <label className="fieldLabel">Type</label>
           <select value={cardType} onChange={this.onChangeCardType}>
-            {this.cardTypeOptions.map(option => (
-              <option value={option.type}>{option.label}</option>
+            {this.cardTypeOptions.map((option, i) => (
+              <option key={i} value={option.type}>{option.label}</option>
             ))}
           </select>
           <label className="fieldLabel">Name</label>
@@ -148,10 +162,6 @@ class CardEditor extends Component {
           <input value={value} onChange={this.onChangeValue} />
           <label className="fieldLabel">Description</label>
           <textarea value={description} onChange={this.onChangeDescription} />
-          <div>
-            <input type="checkbox" checked={needsAttunement} onChange={this.onChangeNeedsAttunement} />
-            Needs Attunement?
-          </div>
           <input
             className="fileInput"
             accept="image/png,image/jpeg"
